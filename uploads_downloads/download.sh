@@ -1,19 +1,22 @@
 #!/bin/bash
 
 # Number of concurrent downloads
-num_downloads=10
+num_downloads=1024
 
 # Filename to download
-filename="1GB.png"
+filename="test.jpg"
 
 # Download URL
-download_url="http://192.168.1.118:5002/download/$filename"
+download_url="http://192.168.1.118:5003/download/$filename"
 
 # Folder to save the downloaded files
 download_folder="./download_folder"
 
 # Folder to save the timing information
 timing_folder="./timing_folder"
+
+# Log file to store the download logs
+log_file="$timing_folder/download_logs.txt"
 
 # Create the download and timing folders if they don't exist
 mkdir -p "$download_folder"
@@ -25,7 +28,7 @@ download_file() {
   curl -o "$download_folder/$filename.$1" "$download_url"
   end_time=$(date +%s.%N)
   elapsed_time=$(bc <<< "$end_time - $start_time")
-  echo "File $1: Started at $(date -d @$start_time +'%H:%M:%S'), Finished at $(date -d @$end_time +'%H:%M:%S'), Elapsed time: $elapsed_time seconds" >> "$timing_folder/timing_$(date +'%Y%m%d_%H%M%S').txt"
+  echo "File $1: Started at $(date -d @$start_time +'%H:%M:%S'), Finished at $(date -d @$end_time +'%H:%M:%S'), Elapsed time: $elapsed_time seconds" >> "$log_file"
 }
 
 # Start the loop

@@ -1,2 +1,0 @@
-File 10: Started at 12:29:40, Finished at 12:33:54, Elapsed time: 254.019523966 seconds
-File 8: Started at 12:29:40, Finished at 12:33:54, Elapsed time: 254.100652912 seconds
