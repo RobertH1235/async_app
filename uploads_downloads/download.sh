@@ -7,7 +7,7 @@ num_downloads=1024
 filename="test.jpg"
 
 # Download URL
-download_url="http://192.168.1.118:5003/download/$filename"
+download_url="http://localhost:8081/download/$filename"
 
 # Folder to save the downloaded files
 download_folder="./download_folder"
