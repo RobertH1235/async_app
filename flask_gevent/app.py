@@ -1,6 +1,9 @@
 import os
 from flask import Flask, request, send_from_directory
 from gevent.pywsgi import WSGIServer
+from gevent import monkey
+
+monkey.patch_all()
 
 UPLOAD_FOLDER = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'uploads')
 ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'}
